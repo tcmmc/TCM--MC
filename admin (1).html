@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TCM Admin</title>
+
+<meta charset="UTF-8">
+
+</head>
+
+<body>
+
+<h1>پنل ادمین TCM</h1>
+
+<input id="email" placeholder="ایمیل ادمین">
+<br><br>
+
+<input id="password" type="password" placeholder="رمز عبور">
+<br><br>
+
+<button id="loginBtn">ورود</button>
+<br><br>
+<a href="index.html" style="color:#8ab4ff;">بازگشت به سایت اصلی</a>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+
+import { 
+getAuth,
+signInWithEmailAndPassword,
+signOut
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+import {
+getFirestore,
+doc,
+getDoc
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBxhXIVDhXNSisJ0v81ZtdjAZZt9vorNig",
+  authDomain: "tcm-mc-173a6.firebaseapp.com",
+  projectId: "tcm-mc-173a6",
+  storageBucket: "tcm-mc-173a6.firebasestorage.app",
+  messagingSenderId: "490709082172",
+  appId: "1:490709082172:web:6ec840d278caef9112a339"
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+
+document.getElementById("loginBtn").onclick = function(){
+
+
+let email = document.getElementById("email").value;
+
+let password = document.getElementById("password").value;
+
+
+signInWithEmailAndPassword(auth, email, password)
+
+.then(async (userCredential) => {
+
+  // بررسی اینکه این کاربر واقعاً در لیست ادمین‌های Firestore هست یا نه
+  const adminDocRef = doc(db, "admins", userCredential.user.uid);
+  const adminSnap = await getDoc(adminDocRef);
+
+  if(!adminSnap.exists()){
+    await signOut(auth);
+    alert("این حساب دسترسی ادمین نداره.");
+    return;
+  }
+
+  alert("ورود موفق شد!");
+
+  window.location.href = "index.html";
+
+})
+
+
+.catch((error) => {
+
+alert("خطا: ایمیل یا رمز اشتباه است");
+
+console.log(error);
+
+});
+
+
+};
+
+
+</script>
+
+
+</body>
+</html>
