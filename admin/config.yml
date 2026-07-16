@@ -1,1 +1,66 @@
+backend:
+  name: github
+  # این دو خط رو با آدرس واقعی ریپوی خودت جایگزین کن، مثلاً:
+  # repo: tcmmc/TCM-MC
+  repo: <tcmmc>/<TCM--MC>
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "site"
+    label: "سایت TCM MC"
+    files:
+      - name: "settings"
+        label: "محتوای اصلی سایت"
+        file: "content/site.json"
+        fields:
+          - { label: "عنوان اصلی (HTML ساده مثل <br> مجازه)", name: "heroTitle", widget: "string" }
+          - { label: "توضیحات هدر", name: "heroDesc", widget: "text" }
+          - { label: "متن دکمه‌ی ورود به سرور (هدر اصلی)", name: "ctaText", widget: "string" }
+          - { label: "لینک دکمه‌ی ورود به سرور (هدر اصلی)", name: "ctaHref", widget: "string" }
+          - { label: "متن دکمه‌ی ورود به سرور (نوار بالا)", name: "navCtaText", widget: "string" }
+          - { label: "لینک دکمه‌ی ورود به سرور (نوار بالا)", name: "navCtaHref", widget: "string" }
+          - { label: "متن دکمه‌ی قوانین (نوار بالا)", name: "navRulesText", widget: "string" }
+          - { label: "لینک دکمه‌ی قوانین (نوار بالا)", name: "navRulesHref", widget: "string" }
+          - { label: "توضیح راهنمای اتصال سریع", name: "joinNote", widget: "text" }
+          - { label: "آدرس سرور", name: "serverIp", widget: "string" }
+          - { label: "پورت سرور", name: "serverPort", widget: "string" }
+          - { label: "نسخه", name: "specVersion", widget: "string" }
+          - { label: "گیم‌مود", name: "specMode", widget: "string" }
+          - { label: "دشواری", name: "specDifficulty", widget: "string" }
+          - { label: "وضعیت PvP", name: "specPvp", widget: "string" }
+          - { label: "متن معرفی فوتر", name: "footerBrandText", widget: "text" }
+          - { label: "متن کپی‌رایت فوتر", name: "footerBottom", widget: "string" }
+          - label: "ویژگی‌های سرور"
+            name: "features"
+            widget: "list"
+            summary: "{{title}}"
+            fields:
+              - { label: "آیکون (ایموجی)", name: "icon", widget: "string" }
+              - { label: "عنوان", name: "title", widget: "string" }
+              - { label: "توضیح", name: "desc", widget: "text" }
+          - label: "قوانین سرور"
+            name: "rules"
+            widget: "list"
+            summary: "{{title}}"
+            fields:
+              - { label: "عنوان قانون", name: "title", widget: "string" }
+              - { label: "توضیح قانون", name: "desc", widget: "text" }
+          - label: "نظرات کاربران"
+            name: "testimonials"
+            widget: "list"
+            summary: "{{name}} — {{stars}}★"
+            fields:
+              - { label: "نام کاربر", name: "name", widget: "string" }
+              - { label: "امتیاز (۱ تا ۵)", name: "stars", widget: "number", min: 1, max: 5, value_type: "int" }
+              - { label: "متن نظر", name: "text", widget: "text" }
+          - label: "سوالات متداول"
+            name: "faq"
+            widget: "list"
+            summary: "{{q}}"
+            fields:
+              - { label: "سوال", name: "q", widget: "string" }
+              - { label: "جواب", name: "a", widget: "text" }
 
