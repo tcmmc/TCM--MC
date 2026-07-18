@@ -1,22 +1,3 @@
 {
-  "posts": [
-    {
-      "title": "آموزش پلی دادن",
-      "image": "/assets/uploads/1000220859.png",
-      "author": "TheFPS",
-      "date": "2026-07-18T13:30",
-      "category": "آموزشات",
-      "excerpt": "آموزش ورود به سرور TCM MC",
-      "body": "اموزش ورود به سرور TCM MC"
-    },
-    {
-      "title": "اموزش پلی دادن",
-      "image": "/assets/uploads/1000220859.png",
-      "author": "TheFPS",
-      "date": "2026-07-18T13:31",
-      "category": "آموزشات",
-      "excerpt": "آموزش ورود به سرور TCM MC",
-      "body": "آموزش ورود به سرور TCM MC"
-    }
-  ]
+  "posts": []
 }
