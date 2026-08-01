@@ -2052,7 +2052,7 @@
         var dx = e.changedTouches[0].clientX - touchStartX;
         touchStartX = null;
         if(Math.abs(dx) >= 40){
-          if(dx < 0) goToNewsSlide(newsIndex + 1); else goToNewsSlide(newsIndex - 1);
+          if(dx < 0) goToNewsSlide(newsIndex - 1); else goToNewsSlide(newsIndex + 1);
         }
         startNewsAutoplay();
       }, { passive: true });
