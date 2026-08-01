@@ -2135,9 +2135,9 @@
 
         var goNext = false, goPrev = false;
         if(Math.abs(v) >= SWIPE_VELOCITY_MIN){
-          if(v < 0) goNext = true; else goPrev = true;
+          if(v < 0) goPrev = true; else goNext = true;
         } else if(Math.abs(dx) >= SWIPE_DISTANCE_MIN){
-          if(dx < 0) goNext = true; else goPrev = true;
+          if(dx < 0) goPrev = true; else goNext = true;
         }
 
         if(goNext) goToNewsSlide(newsIndex + 1);
